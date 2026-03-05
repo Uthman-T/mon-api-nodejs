@@ -75,8 +75,8 @@ router.post("/new", authService.verifyToken, async (req, res) => {
     }
 });
 
-router.patch("/:id/edit", authService.verifyToken, async (req, res) => {
-    const { id } = req.params;
+router.patch("/:id", authService.verifyToken, async (req, res) => {
+    const {id} = req.params;
 
     try {
         let post = await Post.findById(id);
@@ -127,6 +127,47 @@ router.patch("/:id/edit", authService.verifyToken, async (req, res) => {
             });
         }
 
+        return res.status(500).json({
+            error: {
+                code: "INTERNAL_SERVER_ERROR",
+                message: "An unexpected error occurred",
+            },
+        });
+    }
+});
+
+router.delete("/:id", authService.verifyToken, async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const post = await Post.findById(id);
+
+        if (!post) {
+            return res.status(404).json({
+                error: {
+                    code: "RESOURCE_NOT_FOUND",
+                    message: "Post not found",
+                },
+            });
+        }
+
+        if (post._userId.toString() !== req.userId) {
+            return res.status(403).json({
+                error: {
+                    code: "NOT_RESOURCE_OWNER",
+                    message: "You are not authorized to delete this post",
+                },
+            });
+        }
+
+        await Post.findByIdAndDelete(id);
+
+        return res.status(200).json({
+            success: true,
+            message: "Post deleted successfully",
+        });
+
+    } catch (err) {
         return res.status(500).json({
             error: {
                 code: "INTERNAL_SERVER_ERROR",
