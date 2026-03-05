@@ -36,10 +36,10 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/new", authService.verifyToken, async (req, res) => {
-    const {title, content, status} = req.body;
+    const { title, content, status } = req.body;
 
     try {
-        const post = Post({title, content, status});
+        const post = Post({ title, content, status });
         await post.validate();
 
         post._userId = req.userId;
