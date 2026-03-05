@@ -15,6 +15,7 @@ const indexRouter = require("./routes/index");
 const AuthRouter = require("./routes/auth");
 const UsersRouter = require("./routes/users");
 const PostsRouter = require("./routes/posts");
+const CommentsRouter = require("./routes/comments");
 
 app.use(express.json());
 
@@ -22,6 +23,7 @@ app.use("/api", indexRouter);
 app.use("/api/auth", AuthRouter);
 app.use("/api/users", UsersRouter);
 app.use("/api/posts", PostsRouter);
+app.use("/api/comments", CommentsRouter);
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);

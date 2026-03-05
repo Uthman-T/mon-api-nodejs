@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
 
         return res.status(200).json({
             data: posts,
-            meta: {page, size, count},
+            meta: { page, size, count },
         });
 
     } catch (err) {
@@ -51,6 +51,7 @@ router.post("/new", authService.verifyToken, async (req, res) => {
         });
 
     } catch (err) {
+
         if (err.name === "ValidationError") {
             const validations = Object.values(err.errors).map(e => ({
                 message: e.message,
@@ -76,7 +77,7 @@ router.post("/new", authService.verifyToken, async (req, res) => {
 });
 
 router.patch("/:id", authService.verifyToken, async (req, res) => {
-    const {id} = req.params;
+    const { id } = req.params;
 
     try {
         let post = await Post.findById(id);
