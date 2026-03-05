@@ -90,16 +90,19 @@ router.patch("/:id/edit", authService.verifyToken, async (req, res) => {
             });
         }
 
-        if (post._userId !== req.userId) {
+        if (post._userId.toString() !== req.userId) {
             return res.status(403).json({
                 error: {
-                    code: "EDIT_NOT_ALLOWED",
+                    code: "NOT_RESOURCE_OWNER",
                     message: "You are not authorized to edit this post",
                 },
             });
         }
 
-        post = await Post.findByIdAndUpdate(id, req.body);
+        post = await Post.findByIdAndUpdate(id, req.body, {
+            runValidators: true,
+            returnDocument: "after",
+        });
 
         return res.status(200).json({
             success: true,
