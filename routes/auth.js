@@ -55,10 +55,10 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-    const {email, password} = req.body;
+    const { email, password } = req.body;
 
     try {
-        const user = await User.findOne({email: email});
+        const user = await User.findOne({ email: email });
         if (!user) {
             return res.status(401).json({
                 error: {
@@ -88,6 +88,11 @@ router.post("/login", async (req, res) => {
             success: true,
             message: "Login successful",
             accessToken: accessToken,
+            status: {
+                _id: user._id,
+                username: user.username,
+                email: user.email,
+            },
         });
 
     } catch (err) {

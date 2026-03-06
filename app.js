@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const logger = require("morgan");
 
 const port = process.env.PORT || 3000;
 
@@ -17,7 +18,9 @@ const UsersRouter = require("./routes/users");
 const PostsRouter = require("./routes/posts");
 const CommentsRouter = require("./routes/comments");
 
+app.use(logger("dev"));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", indexRouter);
 app.use("/api/auth", AuthRouter);
