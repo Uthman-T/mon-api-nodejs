@@ -64,6 +64,7 @@ router.post("/new", authService.verifyToken, async (req, res) => {
         return res.status(201).json({
             success: true,
             message: "Post created successfully",
+            post: post,
         });
 
     } catch (err) {
@@ -111,7 +112,7 @@ router.get("/:id", async (req, res) => {
             });
         }
 
-        const comment = await Comment.find({ _postId: post._id })
+        const comments = await Comment.find({ _postId: post._id })
             .sort({ createdAt: -1 })
             .populate({
                 path: "_userId",
@@ -120,7 +121,7 @@ router.get("/:id", async (req, res) => {
 
         return res.status(200).json({
             post: post,
-            comment: comment,
+            comments: comments,
         });
 
     } catch (err) {

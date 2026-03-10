@@ -6,9 +6,10 @@ const authService = require("../middlewares/authService");
 
 router.post("/posts/:postId", authService.verifyToken, async (req, res) => {
     const { postId } = req.params;
+    const { message } = req.body;
 
     try {
-        const comment = Comment(req.body);
+        const comment = Comment({message});
         await comment.validate();
 
         comment._postId = postId;
