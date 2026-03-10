@@ -9,7 +9,7 @@ router.post("/posts/:postId", authService.verifyToken, async (req, res) => {
     const { message } = req.body;
 
     try {
-        const comment = Comment({message});
+        const comment = Comment({ message });
         await comment.validate();
 
         comment._postId = postId;
