@@ -51,7 +51,7 @@ client dédiée, etc.), l'api vous permettra de centraliser vos données.
 
 #### Non inclus :
 
-- Repondre à des commentaires.
+- Repondre à des commentaires
 - Modération (administration)
 
 #### Évolution future :
@@ -66,7 +66,6 @@ client dédiée, etc.), l'api vous permettra de centraliser vos données.
 | Visiteur       | Visiteur du système             | Accès limité  |
 | Utilisateur    | Utilisateur standard du système | Accès basique |
 | Administrateur | Modérateur du système           | Accès complèt |
-
 
 ## 4. DESCRIPTION FONCTIONNELLE DÉTAILLÉE
 
@@ -185,9 +184,12 @@ Scénario d'erreur : Champs requis
 - **API** : Application Programming Interface.
 
 - **API REST** : Respecte les principes de conception du style architectural REST.
-  Le principe de base de REST repose sur le protocole de communication HTTP et la notion de ressources, qui peuvent correspondre à n'importe quel élément d'information, comme un utilisateur, un produit, un document ou une collection d'éléments.
+  Le principe de base de REST repose sur le protocole de communication HTTP et la notion de ressources, qui peuvent
+  correspondre à n'importe quel élément d'information, comme un utilisateur, un produit, un document ou une collection
+  d'éléments.
 
 - **API Stateless** : Ne stocke aucun état ou donnée entre les requêtes.
 
-- **JSON Web Token (JWT)** : Protocole permettant la transmission de données de manière sécurisée sous la forme d'un objet JSON, lui-même vérifié par une signature numérique.
+- **JSON Web Token (JWT)** : Protocole permettant la transmission de données de manière sécurisée sous la forme d'un
+  objet JSON, lui-même vérifié par une signature numérique.
  

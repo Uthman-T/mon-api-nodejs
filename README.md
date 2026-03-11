@@ -10,6 +10,7 @@
 - [Documentation technique][2]
 
 [1]: ./functional_doc.md
+[2]: ./technical_doc.md
 
 ## Description du projet
 Il s'agit d'une API pour la gestion centralisé d'un forum.
