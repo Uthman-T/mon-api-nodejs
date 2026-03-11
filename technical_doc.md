@@ -35,7 +35,7 @@ L'objectif spécifique du document est de permettre à une nouvelle équipe tech
 - [Documentation API v1.0.0][2]
 
 [1]: ./functional_doc.md
-[2]: https://postman.com
+[2]: https://documenter.getpostman.com/view/52897947/2sBXiesZio
 
 ## 2. ARCHITECTURE GENERALE
 
@@ -93,5 +93,5 @@ mon-api-nodejs
 
 ## 7. TESTS
 ### 7.1 Tests d'intégration
-- Tests API via [Postman](https://postman.com)
+- Tests API via [Postman](https://documenter.getpostman.com/view/52897947/2sBXiesZio)
  
