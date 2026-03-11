@@ -1,13 +1,13 @@
-![logo](https://img.shields.io/badge/npm-v11.9.0-blue)
-![logo](https://img.shields.io/badge/npm-v25.6.1-blue)
-![logo](https://img.shields.io/badge/Javascript-yellow)
+![npm badge](https://img.shields.io/badge/npm-v11.9.0-blue)
+![node badge](https://img.shields.io/badge/npm-v25.6.1-blue)
+![Javascript badge](https://img.shields.io/badge/Javascript-yellow)
 
 # Mon API nodejs
 
 # Table des matières
 
-- [Document des spécialisations fonctionnelles] [1]
-- [Documentation technique] [2]
+- [Document des spécialisations fonctionnelles][1]
+- [Documentation technique][2]
 
 [1]: ./functional_doc.md
 
